@@ -11,7 +11,7 @@ export default function File() {
   const { data, error } = useSwr(`/api/file/${fileId}`, (url) => fetch(url).then((res) => res.json()));
 
   const copyStreamableLink = () => copyToClipboard(`${window.location.origin}/api/file/download/${fileId}`);
-  var urlvideo = `${window.location.origin}/api/file/download/${fileId}`
+  var urlvideo = `${window.location.origin}/api/file/download/${fileId}`;
 
   if (!data && !error) return <div className="loading-div" />;
   if (error) return <h4 style={{ textAlign: "center", color: "red" }}>Cannot find the file</h4>;
@@ -26,13 +26,19 @@ export default function File() {
       <h4>Type: {mimeType}</h4>
       <h4>Size: {prettyBytes(size)}</h4>
       <div className="row flex-wrap space-evenly mt-1">
+        <a href={`intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end`} className="button primary">
+          <span className="btn-icon">
+            <ion-icon name="download-outline" />
+          </span>
+          <span className="btn-text">Play</span>
+        </a>
         <button onClick={copyStreamableLink}>
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>
           <span className="btn-text">Copy Stream Link</span>
         </button>
-		<button onClick="location.href='intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end';" onmouseout="outFunc()">
+		<button onClick="location.href='intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end';">
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>

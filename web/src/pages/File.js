@@ -23,15 +23,15 @@ export default function File() {
       <div className="row items-center mt-1 mb-05">
         <h4 className="drive-item-title">{name}</h4>
       </div>
-      <h4>Type: {mimeType}</h4>
       <h4>Size: {prettyBytes(size)}</h4>
+	  <br>
       <div className="row flex-wrap space-evenly mt-1">
-		<button onClick="location.href='potplayer://${urlvideo}';">
+        <a href="potplayer://${urlvideo}" className="button primary">
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>
-          <span className="btn-text">PotPlayer</span>
-        </button>
+          <span className="btn-text">Pot Player</span>
+        </a>
         <button onClick={copyStreamableLink}>
           <span className="btn-icon">
             <ion-icon name="play-outline" />

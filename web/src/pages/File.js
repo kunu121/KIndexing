@@ -16,7 +16,7 @@ export default function File() {
   if (!data && !error) return <div className="loading-div" />;
   if (error) return <h4 style={{ textAlign: "center", color: "red" }}>Cannot find the file</h4>;
 
-  const { id, name, modifiedTime, iconLink, mimeType, size, hasThumbnail, thumbnailLink } = data;
+  const { id, name, modifiedTime, iconLink, size } = data;
 
   return (
     <div className="drive-file" id={id}>
@@ -24,9 +24,8 @@ export default function File() {
         <h4 className="drive-item-title">{name}</h4>
       </div>
       <h4>Size: {prettyBytes(size)}</h4>
-	  <br>
       <div className="row flex-wrap space-evenly mt-1">
-        <a href="potplayer://${urlvideo}" className="button primary">
+        <a href='potplayer://${urlvideo}' className="button primary">
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>

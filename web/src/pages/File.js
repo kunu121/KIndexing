@@ -11,6 +11,7 @@ export default function File() {
   const { data, error } = useSwr(`/api/file/${fileId}`, (url) => fetch(url).then((res) => res.json()));
 
   const copyStreamableLink = () => copyToClipboard(`${window.location.origin}/api/file/download/${fileId}`);
+  var urlvideo = `${window.location.origin}/api/file/download/${fileId}`
 
   if (!data && !error) return <div className="loading-div" />;
   if (error) return <h4 style={{ textAlign: "center", color: "red" }}>Cannot find the file</h4>;
@@ -31,7 +32,7 @@ export default function File() {
           </span>
           <span className="btn-text">Copy Stream Link</span>
         </button>
-		<button onclick="location.href='intent:`${window.location.origin}/api/file/download/${fileId}`#Intent;package=com.brouken.player;S.title=${name};end';" onmouseout="outFunc()">
+		<button onClick="location.href='intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end';" onmouseout="outFunc()">
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>

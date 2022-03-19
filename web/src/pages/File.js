@@ -21,17 +21,11 @@ export default function File() {
   return (
     <div className="drive-file" id={id}>
       <div className="row items-center mt-1 mb-05">
-        <h2 className="drive-item-title">{name}</h2>
+        <h4 className="drive-item-title">{name}</h4>
       </div>
       <h4>Type: {mimeType}</h4>
       <h4>Size: {prettyBytes(size)}</h4>
       <div className="row flex-wrap space-evenly mt-1">
-		<button onClick=`"location.href='potplayer://${urlvideo}'`;">
-          <span className="btn-icon">
-            <ion-icon name="play-outline" />
-          </span>
-          <span className="btn-text">Play</span>
-        </button>
 		<button onClick="location.href='potplayer://${urlvideo}';">
           <span className="btn-icon">
             <ion-icon name="play-outline" />

@@ -26,23 +26,23 @@ export default function File() {
       <h4>Type: {mimeType}</h4>
       <h4>Size: {prettyBytes(size)}</h4>
       <div className="row flex-wrap space-evenly mt-1">
-        <a href={`intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end`} className="button primary">
+		<button onClick=`"location.href='potplayer://${urlvideo}'`;">
           <span className="btn-icon">
-            <ion-icon name="download-outline" />
+            <ion-icon name="play-outline" />
           </span>
           <span className="btn-text">Play</span>
-        </a>
+        </button>
+		<button onClick="location.href='potplayer://${urlvideo}';">
+          <span className="btn-icon">
+            <ion-icon name="play-outline" />
+          </span>
+          <span className="btn-text">PotPlayer</span>
+        </button>
         <button onClick={copyStreamableLink}>
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>
-          <span className="btn-text">Copy Stream Link</span>
-        </button>
-		<button onClick="location.href='intent:${urlvideo}#Intent;package=com.brouken.player;S.title=${name};end';">
-          <span className="btn-icon">
-            <ion-icon name="play-outline" />
-          </span>
-          <span className="btn-text">Just (Video) Player</span>
+          <span className="btn-text">Copy Link</span>
         </button>
       </div>
     </div>

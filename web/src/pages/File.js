@@ -25,7 +25,7 @@ export default function File() {
       </div>
       <h4>Size: {prettyBytes(size)}</h4>
       <div className="row flex-wrap space-evenly mt-1">
-        <a href='potplayer://${urlvideo}' className="button primary">
+        <a href='potplayer://${urlvideo}'>
           <span className="btn-icon">
             <ion-icon name="play-outline" />
           </span>
